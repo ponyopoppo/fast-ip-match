@@ -1,8 +1,10 @@
 {
   "name": "fast-ip-match",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
+  "private": false,
   "scripts": {
     "test": "ts-mocha test/index.ts",
     "build": "tsc",

@@ -27,7 +27,7 @@ export class IpMatcher {
     }
 
     addIpRange(ipRange: string) {
-        if (!ipRange.match(/\d+\.\d+\.\d+\.\d+\/\d+/)) {
+        if (!ipRange.match(/^\d+\.\d+\.\d+\.\d+\/\d+$/)) {
             throw new Error(
                 'Invalid ip range format. Example: "192.168.1.10/24"'
             );
@@ -44,6 +44,9 @@ export class IpMatcher {
     }
 
     addIp(ip: string) {
+        if (!ip.match(/^\d+\.\d+\.\d+\.\d+$/)) {
+            throw new Error('Invalid ip format. Example: "192.168.1.10"');
+        }
         this.addIpRange(`${ip}/32`);
     }
 

@@ -27,6 +27,15 @@ describe('IpMatcher', () => {
         strictEqual(matcher.has('123.33.44.58'), false);
     });
 
+    it('should clear', () => {
+        const matcher = new IpMatcher();
+
+        matcher.addIpRange('103.147.197.150/31');
+        matcher.clear();
+
+        strictEqual(matcher.has('103.147.197.150'), false);
+    });
+
     it('should match aws', () => {
         const matcher = new IpMatcher();
         const json = require('./aws-ip-ranges.json');

@@ -60,4 +60,8 @@ export class IpMatcher {
         }
         return false;
     }
+
+    clear() {
+        this.root = new Node();
+    }
 }
